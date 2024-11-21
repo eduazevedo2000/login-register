@@ -1,10 +1,13 @@
 const express = require('express')
 const app = express()
 const dotenv = require('dotenv')
+const cors = require('cors')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 
 dotenv.config()
+
+app.use(cors())
 
 app.use(bodyParser.json())
 app.use(
@@ -22,7 +25,7 @@ mongoose
     console.log(err)
   })
 
-app.use('/api', require('./routes/users'))
+app.use('/api', require('./routes/routes'))
 
 app.listen(process.env.PORT, () => {
   console.log(`server listening at http://localhost:${process.env.PORT}`)

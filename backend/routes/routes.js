@@ -6,16 +6,16 @@ router.get('/getAllUsers', async (req, res) => {
   res.json(allUsers)
 })
 
-router.get('/getUser/:email&:password', async (req, res) => {
-  const email = req.params.email
-  const password = req.params.password
-  const userObject = {
-    email: email,
-    password: password,
-  }
+router.post('/login', async (req, res) => {
+  const email = req.body.email
+  const password = req.body.password
 
-  const user = await User.find(userObject)
-  res.json(user)
+  const user = await User.findOne({ email, password })
+
+  if (!user) {
+    return res.status(401).json({ message: 'Invalid email or password' })
+  }
+  res.json({ name: user.name, email: user.email, password: user.password })
 })
 
 router.post('/addNewUser', async (req, res) => {
