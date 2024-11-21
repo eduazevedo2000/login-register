@@ -10,25 +10,26 @@
   <body>
     <header></header>
     <center>
-      <section id="choice" style="display: none">
-        <button id="registerChoice">Register</button>
-        <button id="loginChoice">Login</button>
+      <section id="choice">
+        <button onclick="showRegister()">Register</button>
+        <button onclick="showLogin()">Login</button>
       </section>
       <br />
-      <!-- <section id="register" style="display: none">
-        <form action="register">
-          Name: <input type="text" name="name" id="name" /> <br />
-          Email: <input type="text" name="email" id="email" /><br />
-          Password: <input type="password" name="password" id="password" />
-          <button type="submit">Register</button>
-        </form>
-      </section> -->
-      <br />
-      <section id="loginSection">
+      <section id="registerSection" style="display: none">
         <form action="#">
-          Email: <input type="text" name="email" id="email" /><br />
-          Password: <input type="password" name="password" id="password" />
-          <button id="loginButton">Login</button>
+          Name: <input type="text" name="name" id="registerName" /> <br />
+          Email: <input type="text" name="email" id="registerEmail" /><br />
+          Password:
+          <input type="password" name="password" id="registerPassword" />
+          <button onclick="register()">Register</button>
+        </form>
+      </section>
+      <br />
+      <section id="loginSection" style="display: none">
+        <form action="#">
+          Email: <input type="text" name="email" id="loginEmail" /><br />
+          Password: <input type="password" name="password" id="loginPassword" />
+          <button onclick="login()">Login</button>
         </form>
       </section>
       <br />

@@ -1,9 +1,9 @@
 const router = require('express').Router()
 const User = require('../model/user')
 
-router.get('/getAllUsers', async (req, res) => {
-  const allUsers = await User.find()
-  res.json(allUsers)
+router.get('/users', async (req, res) => {
+  const users = await User.find()
+  res.json(users)
 })
 
 router.post('/login', async (req, res) => {
@@ -17,10 +17,9 @@ router.post('/login', async (req, res) => {
   }
   res.json({ name: user.name, email: user.email, password: user.password })
 })
-
-router.post('/addNewUser', async (req, res) => {
-  const name = req.body.name
+router.post('/register', async (req, res) => {
   const email = req.body.email
+  const name = req.body.name
   const password = req.body.password
 
   const newUser = new User({
