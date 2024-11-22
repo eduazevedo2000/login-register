@@ -4,6 +4,8 @@ const dotenv = require('dotenv')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
+let genuuid = require('uuid')
+const session = require('express-session')
 
 dotenv.config()
 
@@ -24,6 +26,20 @@ mongoose
   .catch((err) => {
     console.log(err)
   })
+
+// app.use(
+//   session({
+//     name: 'SessionCookie',
+//     genid: function (req) {
+//       console.log('session id created')
+//       return genuuid()
+//     },
+//     secret: 'Shsh!Secret!',
+//     resave: false,
+//     saveUninitialized: false,
+//     cookie: { secure: false, expires: 60000 },
+//   })
+// )
 
 app.use('/api', require('./routes/routes'))
 
